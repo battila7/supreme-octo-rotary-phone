@@ -12,8 +12,7 @@ jobs:
 
     steps:
       - name: Checkout the Repository
-        run: |
-          git clone https://github.com/${{ github.event.repository.full_name }}
+        uses: actions/checkout@v3
 
       - name: List the Repository Contents
         run: |
