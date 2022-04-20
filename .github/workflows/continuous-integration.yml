@@ -24,8 +24,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('./.github/*') }}-workflows
 
       - name: Display Cache Hit
+        if: steps.cache.outputs.cache-hit != true
         run: |
-          echo ${{ steps.cache.outputs.cache-hit }}
+          echo No cache hit!
 
       - name: List the Repository Contents
         run: |
