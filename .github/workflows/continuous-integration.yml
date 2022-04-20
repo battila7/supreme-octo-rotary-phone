@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Hello
+      - name: Checkout the Repository
         run: |
-          echo Hello
+          git clone https://github.com/battila7/supreme-octo-rotary-phone
+
+      - name: List the Repository Contents
+        run: |
+          ls -la
