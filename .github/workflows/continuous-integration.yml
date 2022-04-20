@@ -11,13 +11,9 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Print the Repository Name
-        run: |
-          echo ${{ github.event.repository.full_name }}
-
       - name: Checkout the Repository
         run: |
-          git clone https://github.com/battila7/supreme-octo-rotary-phone
+          git clone https://github.com/${{ github.event.repository.full_name }}
 
       - name: List the Repository Contents
         run: |
