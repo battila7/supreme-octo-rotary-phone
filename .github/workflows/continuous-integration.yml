@@ -23,6 +23,8 @@ jobs:
   pancake:
     name: Pancake
 
+    needs: [hello-world]
+
     runs-on: ubuntu-20.04
 
     steps:
