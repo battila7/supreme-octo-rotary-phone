@@ -5,10 +5,14 @@ on:
 - push
 
 jobs:
-  test-12:
-    name: Test 12
+  test:
+    name: Test
 
     runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        node: [12, 14, 16]
 
     steps:
       - name: Checkout the Repository
@@ -19,47 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '12'
-
-      - name: Test the Application
-        run: |
-          node index.js
-
-  test-14:
-    name: Test 14
-
-    runs-on: ubuntu-20.04
-
-    steps:
-      - name: Checkout the Repository
-        uses: actions/checkout@v3
-        with:
-          ref: master
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Test the Application
-        run: |
-          node index.js
-
-  test-16:
-    name: Test 16
-
-    runs-on: ubuntu-20.04
-
-    steps:
-      - name: Checkout the Repository
-        uses: actions/checkout@v3
-        with:
-          ref: master
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
+          node-version: ${{ matrix.node }}
 
       - name: Test the Application
         run: |
