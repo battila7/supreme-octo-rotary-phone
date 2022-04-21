@@ -25,7 +25,7 @@ jobs:
     name: Pancake
 
     needs: [hello-world]
-    if: event.name == 'pull_request'
+    if: github.event_name == 'pull_request'
 
     runs-on: ubuntu-20.04
 
