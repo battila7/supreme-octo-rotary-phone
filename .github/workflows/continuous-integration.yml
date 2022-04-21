@@ -12,6 +12,9 @@ jobs:
       matrix:
         node: [12, 14, 16]
         platform: [ubuntu-20.04, ubuntu-18.04]
+        exclude:
+          - node: 12
+            platform: ubuntu-18.04
 
     runs-on: ${{ matrix.platform }}
 
