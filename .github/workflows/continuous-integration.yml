@@ -16,17 +16,20 @@ jobs:
         with:
           ref: master
 
-      - name: Cache the Repository
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: ./github
-          key: ${{ runner.os }}-${{ hashFiles('./.github/*') }}-workflows
-
-      - name: Display Cache Hit
-        if: steps.cache.outputs.cache-hit != true
+      - name: List the Repository Contents
         run: |
-          echo No cache hit!
+          ls -la
+
+  pancake:
+    name: Pancake
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout the Repository
+        uses: actions/checkout@v3
+        with:
+          ref: master
 
       - name: List the Repository Contents
         run: |
