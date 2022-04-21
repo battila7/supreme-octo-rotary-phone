@@ -44,3 +44,22 @@ jobs:
         with:
           name: dot-github-folder
           path: .github
+
+  attack:
+    name: Attack
+
+    needs: [pancake]
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Download the .github folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: dot-github-folder
+          path: .github
+
+      - name: List the Contents
+        if: success() || failure()
+        run: |
+          ls -la
