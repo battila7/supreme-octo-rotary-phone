@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Download the .github folder
-        uses: actions/upload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: dot-github-folder
           path: .github
