@@ -3,6 +3,7 @@ name: Continuous Integration
 
 on:
 - push
+- pull_request
 
 jobs:
   hello-world:
@@ -24,6 +25,7 @@ jobs:
     name: Pancake
 
     needs: [hello-world]
+    if: 
 
     runs-on: ubuntu-20.04
 
