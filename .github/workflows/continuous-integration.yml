@@ -32,3 +32,15 @@ jobs:
       - name: Test the Application
         run: |
           node index.js
+
+  pancake:
+    name: Pancake
+
+    needs: [test]
+
+    runs-on: ubuntu-18.04
+
+    steps:
+      - name: Ahoy
+        run: |
+          echo Ahoy
